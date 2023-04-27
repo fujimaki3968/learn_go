@@ -39,3 +39,32 @@ if m := rand.Intn(10); m == 5 {
 ### map
 
 mapの変数をfor-rangeすると毎回出力順序が変わる。これは，セキュリティを意識した仕様（順番が固定されていると仮定してコードを書く人間を消すため）
+
+### ポインタ
+
+nilポインタは更新できない
+
+関数でポインタ自体を更新できない
+
+```go
+func failedUpdate(px *int) {
+	x2 := 100
+	px = &x2
+}
+
+func update(px *int) {
+	*px = 100
+}
+
+func main() {
+	x := 10
+	px := &x
+	failedUpdate(px)
+	println(x) // 10 ポインタ自体を書き換えることはできない
+	update(px)
+	println(x) // 100
+}
+```
+
+大きな構造体を関数の引数として使う場合はポインタで渡した方がよい！
+
