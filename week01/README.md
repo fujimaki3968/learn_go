@@ -100,3 +100,31 @@ func main() {
 	fmt.Println(c) // total: 1, last_updated: hogehoge
 }
 ```
+
+### 埋め込み
+
+「クラス継承よりオブジェクト合成のほうがよい」という主張があり，Goではそれを採用しているらしい。(GoF Gang of Four)
+
+たしかに使いやすいし個人的に好きかも
+
+埋め込みのフィールドが重複しているときは明示的に指定する必要がある。
+
+```go
+type Inner struct {
+	Val int
+}
+
+type Outer struct {
+	Inner
+	Val int
+}
+
+func main() {
+	o := Outer{
+		Inner: Inner{Val: 1},
+		Val:   2,
+	}
+	println(o.Val)       // 2
+	println(o.Inner.Val) // 1
+}
+```
