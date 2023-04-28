@@ -128,3 +128,25 @@ func main() {
 	println(o.Inner.Val) // 1
 }
 ```
+
+### interface
+
+型を定義せずに任意の型の値を記憶できてしまう
+
+ただ関数群の扱いとかで楽になるところもある
+
+```go
+func main() {
+	var i any
+	i = 1
+	fmt.Println(i) // 1
+
+	i = "hello"
+	fmt.Println(i) // hello
+
+	i = struct {
+		name string
+	}{name: "world"}
+	fmt.Println(i) // {world}
+}
+```
