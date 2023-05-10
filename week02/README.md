@@ -36,3 +36,13 @@ defer func() {
     }
 }()
 ```
+
+### go module
+
+go moduleを使うと依存関係を管理できる。
+
+```bash
+go mod init example.com/hogehoge
+
+go mod tidy # 依存関係を整理する
+```
