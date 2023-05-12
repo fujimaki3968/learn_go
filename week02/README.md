@@ -46,3 +46,18 @@ go mod init example.com/hogehoge
 
 go mod tidy # 依存関係を整理する
 ```
+
+#### パッケージの命名記法
+
+`util.ExtractNames`, `util.FormatNames`ではなく`extract.Names`, `format.Names`のようにパッケージ名は機能に合わせて命名する方が良い。
+
+#### パッケージ名のオーバーライド
+
+`import`でパッケージ名をオーバーライドできる。
+
+```go
+import (
+	"fmt"
+	myfmt "example.com/hogehoge/fmt"
+)
+```
