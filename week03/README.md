@@ -73,3 +73,18 @@ if err != nil {
     }
 }
 ```
+
+## Context
+
+### cancel
+
+複数のgoroutineをキャンセルするときに使う。
+
+```go
+ctx, cancel := context.WithCancel(context.Background())
+
+go func() {
+    time.Sleep(3 * time.Second)
+    cancel()
+}()
+```
