@@ -122,4 +122,3 @@ func TestArea(t *testing.T) {
 
 `go test -bench=. -benchmem`でベンチマークのメモリ使用量も確認できる。
 
-```go
