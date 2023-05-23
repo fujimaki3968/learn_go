@@ -70,3 +70,20 @@ func createFile(t *testing.T) (string, error) {
     return f.Name(), nil
 }
 ```
+
+### cmpを使ったテスト
+
+cmpを使うことで、構造体の比較をいい感じに行うことができる。
+
+```go
+cmp.Diff(got, want)
+```
+
+
+### coverage
+
+`go test -cover`でカバレッジを確認できる。
+
+`go test -coverprofile=coverage.out`でカバレッジをファイルに出力できる。
+
+`go tool cover -html=coverage.out`でカバレッジをhtmlで確認できる。
